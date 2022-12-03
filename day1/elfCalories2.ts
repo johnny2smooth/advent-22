@@ -2,13 +2,13 @@ export const x = "";
 
 const input = await Deno.readTextFile("day1/input.txt");
 const lines = input.split(/\n/).map((line) => +line);
-let biggest = -Infinity;
+const biggest = -Infinity;
 
 let i = 0;
 
 let calories = 0;
 
-let allElves = [];
+const allElves = [];
 
 while (i < lines.length) {
   if (lines[i] === 0) {
@@ -17,8 +17,11 @@ while (i < lines.length) {
     }
     calories = 0;
   }
-  calories += lines[i]
+  calories += lines[i];
   i += 1;
 }
 
-allElves.sort().slice(allElves.length - 3, allElves.length).reduce((prev, current) => prev + current, 0)
+allElves
+  .sort()
+  .slice(allElves.length - 3, allElves.length)
+  .reduce((prev, current) => prev + current, 0);
