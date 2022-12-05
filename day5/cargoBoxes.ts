@@ -8,17 +8,30 @@ const cargoBoxes = [
   ["P", "Q", "N", "L", "W", "F", "G"],
   ["W", "P", "L"],
   ["J", "Q", "C", "G", "R", "D", "B", "V"],
-  ["J", "T", "G", "C", "F", "L", "H"],
   ["W", "B", "N", "Q", "Z"],
+  ["J", "T", "G", "C", "F", "L", "H"],
 ];
 
 const cargoMoves = input
   .split(/\n/)
   .map((input) => input.split(" "))
   .map((input) =>
-    input.filter((input) => {
-      return !isNaN(+input);
-    })
+    input
+      .filter((input) => {
+        return !isNaN(+input);
+      })
+      .map((input) => +input)
   );
 
-console.log(cargoMoves[0]);
+cargoMoves.slice(0, cargoMoves.length).forEach((moves) => {
+  const [move, from, to] = moves;
+  cargoBoxes[to - 1].unshift(...cargoBoxes[from - 1].splice(0, move));
+});
+
+console.log(cargoBoxes.map((box) => box[0]).join(""));
+
+// let topBoxes = cargoBoxes.map((box) => box[0]);
+
+// console.log(topBoxes[0]);
+
+// console.log(topBoxes.join(""));
