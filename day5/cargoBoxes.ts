@@ -1,4 +1,25 @@
 const input = await Deno.readTextFile("day5/cargo-moves.txt");
+// const test = await Deno.readTextFile("day5/test.txt");
+
+// const cargoBoxTest = [["N", "Z"], ["D", "C", "M"], ["P"]];
+
+// const testMoves = test
+//   .split(/\n/)
+//   .map((input) => input.split(" "))
+//   .map((input) =>
+//     input
+//       .filter((input) => {
+//         return !isNaN(+input);
+//       })
+//       .map((input) => +input)
+//   );
+
+// testMoves.forEach((moves) => {
+//   const [move, from, to] = moves;
+//   cargoBoxTest[to - 1].unshift(
+//     ...cargoBoxTest[from - 1].splice(0, move).reverse()
+//   );
+// });
 
 const cargoBoxes = [
   ["V", "Q", "W", "M", "B", "N", "Z", "C"],
@@ -23,15 +44,11 @@ const cargoMoves = input
       .map((input) => +input)
   );
 
-cargoMoves.slice(0, cargoMoves.length).forEach((moves) => {
+cargoMoves.forEach((moves) => {
   const [move, from, to] = moves;
-  cargoBoxes[to - 1].unshift(...cargoBoxes[from - 1].splice(0, move));
+  cargoBoxes[to - 1].unshift(...cargoBoxes[from - 1].splice(0, move).reverse());
 });
 
-console.log(cargoBoxes.map((box) => box[0]).join(""));
+const topBoxes = cargoBoxes.map((box) => box[0]);
 
-// let topBoxes = cargoBoxes.map((box) => box[0]);
-
-// console.log(topBoxes[0]);
-
-// console.log(topBoxes.join(""));
+console.log(topBoxes.join(""));
