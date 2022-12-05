@@ -25,29 +25,7 @@ const cargoMoves = input
 
 cargoMoves.forEach((moves) => {
   const [move, from, to] = moves;
-  cargoBoxes[to - 1].unshift(...cargoBoxes[from - 1].splice(0, move).reverse());
+  cargoBoxes[to - 1].unshift(...cargoBoxes[from - 1].splice(0, move));
 });
 
 export default cargoBoxes;
-
-// const test = await Deno.readTextFile("day5/test.txt");
-
-// const cargoBoxTest = [["N", "Z"], ["D", "C", "M"], ["P"]];
-
-// const testMoves = test
-//   .split(/\n/)
-//   .map((input) => input.split(" "))
-//   .map((input) =>
-//     input
-//       .filter((input) => {
-//         return !isNaN(+input);
-//       })
-//       .map((input) => +input)
-//   );
-
-// testMoves.forEach((moves) => {
-//   const [move, from, to] = moves;
-//   cargoBoxTest[to - 1].unshift(
-//     ...cargoBoxTest[from - 1].splice(0, move).reverse()
-//   );
-// });
