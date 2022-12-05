@@ -13,3 +13,7 @@ Checking in on day 2. Copilot is not my friend anymore. I have disabled it for t
 ## Day 3
 
 It is wild how one simple mistake can cascade to such a mess. Watching the world cup this morning alongside my elf friends. USA 🇺🇸 lost. Argentina 🇦🇷 will hopefully move on.
+
+## Day 4
+
+Argentina moved on. Day 4 check in, things are going well! 477.
