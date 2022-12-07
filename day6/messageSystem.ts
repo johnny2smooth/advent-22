@@ -1,10 +1,10 @@
 const input = await Deno.readTextFile("day6/input.txt");
 
-const getCharactersProcessed = (input: string[]) => {
+const getCharactersProcessed = (input: string[], messageLength: number) => {
   const signalSet = new Set();
   let i = 0;
-  while (signalSet.size <= 14) {
-    if (signalSet.size === 14) {
+  while (signalSet.size <= messageLength) {
+    if (signalSet.size === messageLength) {
       i - 1;
       break;
     }
@@ -19,6 +19,6 @@ const getCharactersProcessed = (input: string[]) => {
   return i;
 };
 
-getCharactersProcessed(input.split(""));
+getCharactersProcessed(input.split(""), 14);
 
 export default getCharactersProcessed;
